@@ -32,4 +32,14 @@ public class EmployeeController {
     public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
         return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable long id,
+                                                   @RequestBody Employee employee) {
+        return new ResponseEntity<>(employeeService.updateEmployee(employee,id), HttpStatus.OK);
+    }
+
+
+
+
 }
